@@ -132,7 +132,7 @@ export default {
   text-align: center;
   font-size: 60px;
   color: #12372A;
-  /*background-color: #E8EFCF;*/
+  background-color: #E8EFCF;
   padding-top: 50px;
 }
 .p {

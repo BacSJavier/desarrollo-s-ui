@@ -26,11 +26,21 @@ data:() => ({
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Poetsen+One&family=Rubik+Mono+One&display=swap');
 .center-class{
   text-align: center;
+  font-family: "Rubik Mono One", monospace;
+  font-size: 40px;
+  padding-top: 2%;
+  color: #F1F1F1;
 }
 .img-carousel{
   text-align: center;
-  width:90%;
+  width:80%;
 }
+.v-carousel{
+  background-color: #A2C579;
+}
+
+
 </style>
