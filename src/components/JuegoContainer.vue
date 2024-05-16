@@ -1,7 +1,7 @@
 <template>
   <div class="trash-recognition">
     <div class="question">
-      <v-img :src="randomImageSrc.image" width="200" height="200"></v-img>
+      <v-img :src="randomImageSrc.image" width="400" height="400" style="display: block; margin: auto;"></v-img>
       <p style="text-align: center;">¿A qué contenedor pertenece esta basura({{ randomImageSrc.text }})?</p>
     </div>
     <div class="options-container">
@@ -96,21 +96,47 @@ export default {
 }};
 </script>
 
-<style scoped>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
 
-.options-container{
+.trash-recognition {
+  background-color: #ABC4AA;
+  font-family: 'Poetsen One', sans-serif;
+  color: #675d50; /* Color de texto principal */
+  font-size: 30px;
+  padding-top: 3%;
+  padding-bottom: 10px;
+}
+
+.question {
+  text-align: center;
+}
+
+.options-container {
   display: flex;
   justify-content: center;
-  flex-wrap: nowrap; 
+  flex-wrap: nowrap;
   overflow-x: auto;
 }
+
 .options {
   width: 200px;
   height: 200px;
 }
 
 .option {
-  margin-right:10px ;
+  margin-right: 10px;
 }
 
+.result {
+  text-align: center;
+  font-size: 60px;
+  color: #12372A;
+  /*background-color: #E8EFCF;*/
+  padding-top: 50px;
+}
+.p {
+  margin-block: 30px;
+  padding: 20px;
+}
 </style>
