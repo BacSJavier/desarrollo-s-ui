@@ -5,8 +5,8 @@
       <p style="text-align: center;">¿A qué contenedor pertenece esta basura ({{ randomImageSrc.text }})?</p>
     </div>
     <div class="options-container">
-      <div v-for="(option, index) in options" :key="index" class="option" @click="checkAnswer(option)">
-        <v-card width="200" style="overflow-y:auto">
+      <div v-for="(option, index) in options" :key="index" class="option" @click="checkAnswer(option,index)">
+        <v-card :color="getColor(index)" width="200" style="overflow-y:auto">
           <img class="options" :src="option.image" :alt="option.text">
           <p>{{ option.text }}</p>
         </v-card>
@@ -48,7 +48,9 @@ export default {
         { text: 'Inorgánico', value: 'INORGANICO' ,image: require('@/assets/pt4.png') },
         { text: 'Laboratorio de Quimica', value: 'LABQUIMICA' ,image: require('@/assets/pt4.png') },
       ],
-      result: null,
+      selectedCard: null, // Índice de la carta seleccionada
+      isResultSucess: false, // Indicador de resultado correcto
+      resultColor: null, // Color de fondo del resultado
       correctAnswer: null, // Opción correcta
       userAnswer: null, // Respuesta del usuario
       showResult: false, // Indicador para mostrar el resultado
@@ -56,16 +58,19 @@ export default {
     };
   },
   methods: {
-    checkAnswer(option) {
+    checkAnswer(option, index) {
       this.userAnswer = option.value;
+      this.selectedCard = index 
       if (this.userAnswer === this.correctAnswer) {
         // El usuario acertó la respuesta
-        this.result = 'ACERTASTE!' 
+        this.resultColor = 'success' 
+        this.isResultSucess = true
         this.fetchGif('winner')
       } else {
         // El usuario erró la respuesta
         this.fetchGif('loser')
-        this.result = 'FALLASTE!' 
+        this.resultColor = 'error'
+        this.isResultSucess = false
       }
       this.showResult = true;
         // Recargar la página después de 5 segundos
@@ -73,6 +78,12 @@ export default {
         window.location.reload();
       }, 5000); // 5000 milisegundos = 5 segundos
 
+    },
+    getColor(index){
+      if(index == this.selectedCard){
+        return this.isResultSucess ? 'success' : 'error' //Para la card seleccionada
+      }
+      return ''; //Para las cards no seleccionadas
     },
     selectRandomImage() {
       const randomIndex = Math.floor(Math.random() * this.trashSrc.length);
