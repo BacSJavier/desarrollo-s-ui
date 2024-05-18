@@ -43,29 +43,55 @@
   };
   </script>
   
-  <style scoped>
-  .about-us {
-    margin-top: 5rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-  
-  .team-member {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .member-info {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .member-image img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-  }
-  </style>
+<style scoped>
+.about-us {
+  padding-top: 3%;
+  padding-bottom: 4%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(to bottom,#FFFFDD ,  #CFFF8D); /* Color de fondo principal */
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.member-info {
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: #81C784 ; /* Color de fondo del cuadro de información */
+  padding: 10px; /* Espaciado interno */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+.member-info h2 {
+  color: #024102  ; /* Color del texto del nombre */
+  margin-bottom: 5px; /* Espaciado inferior */
+}
+
+.member-info p {
+  color: #FFFFFF; /* Color del texto del rol */
+}
+
+.member-image img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%; /* Hace la imagen circular */
+  border: 5px solid #FF9800; /* Borde de la imagen */
+}
+
+  /*
+verde claro: D9EDBF
+naranja: FF9800
+verde oscuro: 2C7865
+verde medio: 90D26D
+verde claro fosfo: CFFF8D
+beige: FFFFDD
+*/
+
+</style>
   
