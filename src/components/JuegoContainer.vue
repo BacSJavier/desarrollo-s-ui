@@ -2,7 +2,7 @@
   <div class="trash-recognition">
     <div class="question">
       <v-img :src="randomImageSrc.image" width="400" height="400" style="display: block; margin: auto;"></v-img>
-      <p style="text-align: center;">¿A qué contenedor pertenece esta basura({{ randomImageSrc.text }})?</p>
+      <p style="text-align: center;">¿A qué contenedor pertenece esta basura ({{ randomImageSrc.text }})?</p>
     </div>
     <div class="options-container">
       <div v-for="(option, index) in options" :key="index" class="option" @click="checkAnswer(option)">
@@ -100,16 +100,17 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
 
 .trash-recognition {
-  background-color: #ABC4AA;
+  background: linear-gradient(to bottom,#FFFFDD ,  #CFFF8D);
   font-family: 'Poetsen One', sans-serif;
-  color: #675d50; /* Color de texto principal */
-  font-size: 30px;
+  color: #2C7865; /* Color de texto principal */
+  font-size: 40px;
   padding-top: 3%;
-  padding-bottom: 10px;
 }
 
 .question {
   text-align: center;
+  padding-bottom: 15px;
+  padding-top: 15px;
 }
 
 .options-container {
@@ -131,12 +132,18 @@ export default {
 .result {
   text-align: center;
   font-size: 60px;
-  color: #12372A;
-  background-color: #E8EFCF;
+  color: #D9EDBF;
+  background-color: #90D26D;
   padding-top: 50px;
 }
-.p {
-  margin-block: 30px;
-  padding: 20px;
-}
+
+/*
+verde claro: D9EDBF
+naranja: FF9800
+verde oscuro: 2C7865
+verde medio: 90D26D
+verde claro fosfo: CFFF8D
+beige: FFFFDD
+*/
+
 </style>

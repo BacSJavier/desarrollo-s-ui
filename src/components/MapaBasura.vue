@@ -1,10 +1,13 @@
 <template>
-  <v-carousel style="height:90vh;">
+  <div>
     <h2 class="center-class">{{ title }}</h2>
-    <v-carousel-item v-for="(img, index) in urlImages" :key="index">
-        <v-img class="img-carousel" :src="img"></v-img>
-    </v-carousel-item>
-  </v-carousel>
+    <v-carousel>
+      <v-carousel-item v-for="(img, index) in urlImages" :key="index">
+          <v-img class="img-carousel" :src="img"></v-img>
+      </v-carousel-item>
+    </v-carousel>
+    <h2 class="center-class"></h2>
+  </div>
 </template>
 
 <script>
@@ -26,21 +29,31 @@ data:() => ({
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Poetsen+One&family=Rubik+Mono+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
 .center-class{
   text-align: center;
-  font-family: "Rubik Mono One", monospace;
-  font-size: 40px;
+  font-family: 'Poetsen One', sans-serif;
+  font-size: 50px;
   padding-top: 2%;
-  color: #F1F1F1;
+  background: linear-gradient(to bottom,#FFFFDD ,  #CFFF8D);
+  color: #2C7865; 
+  padding: 20px;
 }
 .img-carousel{
   text-align: center;
-  width:80%;
+  width:100%;
 }
 .v-carousel{
   background-color: #A2C579;
 }
 
+/*
+verde claro: D9EDBF
+naranja: FF9800
+verde oscuro: 2C7865
+verde medio: 90D26D
+verde claro fosfo: CFFF8D
+beige: FFFFDD
+*/
 
 </style>

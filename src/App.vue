@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app>
+    <v-app-bar app class="barra">
       <v-container>
         <v-row align="center">
           <v-col cols="auto">
@@ -26,14 +26,33 @@
     </v-main>
   </v-app>
 </template>
+
 <script>
 //import HomePage from './components/HomePage.vue';
 
 export default {
   name: 'App',
 
-  components: {
-    //HomePage
+  data() {
+    return {
+      drawer: false,
+    };
   },
 };
 </script>
+
+<style>
+.barra {
+  background-color: #FF9800 !important;
+}
+
+/* Otros colores para referencia */
+  /*
+  verde claro: #D9EDBF;
+  naranja: #FF9800;
+  verde oscuro: #2C7865;
+  verde medio: #90D26D;
+  verde claro fosfo: #CFFF8D;
+  beige: #FFFFDD;
+  */
+</style>
