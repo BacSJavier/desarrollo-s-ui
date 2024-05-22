@@ -10,7 +10,7 @@
             <p class="question-header">Aciertos: {{aciertosCount}} - Fallos: {{ fallosCount }}</p>
           </v-col>
         </v-row>
-        <v-img :src="currentTrashElement.image" width="400" height="400" style="display: block; margin: auto;"></v-img>
+        <v-img :src="currentTrashElement.image" width="500" height="500" style="display: block; margin: auto;"></v-img>
         <p style="text-align: center;">¿A qué contenedor pertenece esta basura ({{ currentTrashElement.text }})?</p>
       </div>
       <div class="options-container">
@@ -36,7 +36,7 @@
       </v-dialog>
     </div>
     <div v-else>
-      <v-card>
+      <v-card class="termino">
         <v-card-title class="result-title">¡Juego terminado!</v-card-title>
         <v-card-text class="result-text">
           <p>Has acertado {{ aciertosCount }} preguntas y has fallado {{ fallosCount }} preguntas.</p>
@@ -57,14 +57,14 @@ export default {
       currentTrashElement: {},
       currentTrashElementIndex: 0,
       trashSrc: [
-        { text: 'Aceite Quemado', image: require('@/assets/aceite_quemado.jpeg'), categoria: 'LABQUIMICA' },
+        { text: 'Aceite Quemado', image: require('@/assets/aceite_quemado.png'), categoria: 'LABQUIMICA' },
         { text: 'Botella de Vidrio', image: require('@/assets/botella-vidrio.png'), categoria: 'INORGANICO' },
         { text: 'Botella de Plastico(PET)', image: require('@/assets/botella.png'), categoria: 'PLASTICOS' },
-        { text: 'Bolsa de Frituras', image: require('@/assets/flaming_hot.jpg'), categoria: 'INORGANICO' },
+        { text: 'Bolsa de Frituras', image: require('@/assets/flaming_hot.png'), categoria: 'INORGANICO' },
         { text: 'Manzana', image: require('@/assets/manzana.png'), categoria: 'ORGANICO' },
-        { text: 'Papel', image: require('@/assets/papel.jpg'), categoria: 'ACOPIO' },
+        { text: 'Papel', image: require('@/assets/papel.png'), categoria: 'ACOPIO' },
         { text: 'Baterias', image: require('@/assets/pila.png'), categoria: 'LABQUIMICA' },
-        { text: 'Sandwich', image: require('@/assets/sandwich.jpeg'), categoria: 'ORGANICO' },
+        { text: 'Sandwich', image: require('@/assets/sandwich.png'), categoria: 'ORGANICO' },
       ],
       options: [
         { text: 'Acopio de papel', value: 'ACOPIO', image: require('@/assets/pt1.png') },
@@ -158,6 +158,7 @@ export default {
   color: #2C7865; /* Color de texto principal */
   font-size: 40px;
   padding-top: 3%;
+  padding-bottom: 30px;
 }
 
 .question {
@@ -228,6 +229,10 @@ export default {
 .result-text {
   font-size: 30px !important;
   margin-bottom: 60px; /* Separación entre el texto y el botón */
+}
+
+.termino{
+  background: linear-gradient(to bottom, #FFFFDD, #CFFF8D);
 }
 
 </style>
