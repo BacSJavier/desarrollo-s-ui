@@ -10,7 +10,7 @@
             <p class="question-header">Aciertos: {{aciertosCount}} - Fallos: {{ fallosCount }}</p>
           </v-col>
         </v-row>
-        <v-img :src="currentTrashElement.image" width="500" height="500" style="display: block; margin: auto;"></v-img>
+        <v-img :src="currentTrashElement.image" width="20%" height="20%" style="display: block; margin: auto;"></v-img>
         <p style="text-align: center;">¿A qué contenedor pertenece esta basura ({{ currentTrashElement.text }})?</p>
       </div>
       <div class="options-container">
@@ -67,11 +67,11 @@ export default {
         { text: 'Sandwich', image: require('@/assets/sandwich.png'), categoria: 'ORGANICO' },
       ],
       options: [
-        { text: 'Acopio de papel', value: 'ACOPIO', image: require('@/assets/pt1.png') },
-        { text: 'Orgánicos', value: 'ORGANICO', image: require('@/assets/pt2.png') },
-        { text: 'Plásticos', value: 'PLASTICOS', image: require('@/assets/pt3.png') },
-        { text: 'Inorgánico', value: 'INORGANICO', image: require('@/assets/pt4.png') },
-        { text: 'Laboratorio de Quimica', value: 'LABQUIMICA', image: require('@/assets/pt4.png') },
+        { text: 'Acopio de papel', value: 'ACOPIO', image: require('@/assets/centro_computo.jpg') },
+        { text: 'Orgánicos', value: 'ORGANICO', image: require('@/assets/bote_organicos.png') },
+        { text: 'Plásticos', value: 'PLASTICOS', image: require('@/assets/bote_plasticos.png') },
+        { text: 'Inorgánico', value: 'INORGANICO', image: require('@/assets/bote_inorganicos.png') },
+        { text: 'Laboratorio de Quimica', value: 'LABQUIMICA', image: require('@/assets/lab_quimica.jpg') },
       ],
       aciertosCount: 0,
       fallosCount: 0,
@@ -175,8 +175,8 @@ export default {
 }
 
 .options {
-  width: 350px;
-  height: 200px;
+  width: 20%;
+  height: 80%;
   margin: auto;
 }
 
@@ -202,7 +202,7 @@ export default {
 .option-card {
   overflow-y: auto;
   text-align: center;
-  font-size: 30px; /* Tamaño de la fuente para las opciones */
+  font-size: 50%; /* Tamaño de la fuente para las opciones */
 }
 
 .result-card {
