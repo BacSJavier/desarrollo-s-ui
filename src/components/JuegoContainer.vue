@@ -48,9 +48,12 @@
 </template>
 
 <script>
+import MaterialesService from '@/services/MaterialesService';
+
 export default {
   mounted() {
     this.setup();
+    this.getMaterials();
   },
   data() {
     return {
@@ -92,6 +95,16 @@ export default {
     }
   },
   methods: {
+    getMaterials(){
+      MaterialesService.getMateriales()
+        .then(response => {
+          //this.trashSrc = response.data;
+          console.log(response.data);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
     checkAnswer(option, index) {
       this.userAnswer = option.value;
       this.selectedCard = index;
