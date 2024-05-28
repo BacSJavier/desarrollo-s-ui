@@ -1,5 +1,5 @@
 <template>
-  <div class="trash-recognition">
+<div class="trash-recognition">
     <div v-if="!isGameFinished">
       <div class="question">
         <v-row>
@@ -10,8 +10,8 @@
             <p class="question-header">Aciertos: {{aciertosCount}} - Fallos: {{ fallosCount }}</p>
           </v-col>
         </v-row>
-        <v-img :src="currentTrashElement.image" width="20%" height="20%" style="display: block; margin: auto;"></v-img>
-        <p style="text-align: center;">¿A qué contenedor pertenece esta basura ({{ currentTrashElement.text }})?</p>
+        <v-img :src="currentTrashElement.imagen" width="20%" height="20%" style="display: block; margin: auto;"></v-img>
+        <p style="text-align: center;">¿A qué contenedor pertenece esta basura ({{ currentTrashElement.nombre }})?</p>
       </div>
       <div class="options-container">
         <div v-for="(option, index) in options" :key="index" class="option" @click="checkAnswer(option,index)">
@@ -44,31 +44,21 @@
         </v-card-text>
       </v-card>
     </div>
-  </div>
+</div>
 </template>
 
 <script>
 import MaterialesService from '@/services/MaterialesService';
 
 export default {
-  mounted() {
-    this.setup();
+  created() {
     this.getMaterials();
   },
   data() {
     return {
       currentTrashElement: {},
       currentTrashElementIndex: 0,
-      trashSrc: [
-        { text: 'Aceite Quemado', image: require('@/assets/aceite_quemado.png'), categoria: 'LABQUIMICA' },
-        { text: 'Botella de Vidrio', image: require('@/assets/botella-vidrio.png'), categoria: 'INORGANICO' },
-        { text: 'Botella de Plastico(PET)', image: require('@/assets/botella.png'), categoria: 'PLASTICOS' },
-        { text: 'Bolsa de Frituras', image: require('@/assets/flaming_hot.png'), categoria: 'INORGANICO' },
-        { text: 'Manzana', image: require('@/assets/manzana.png'), categoria: 'ORGANICO' },
-        { text: 'Papel', image: require('@/assets/papel.png'), categoria: 'ACOPIO' },
-        { text: 'Baterias', image: require('@/assets/pila.png'), categoria: 'LABQUIMICA' },
-        { text: 'Sandwich', image: require('@/assets/sandwich.png'), categoria: 'ORGANICO' },
-      ],
+      trashSrc: [],
       options: [
         { text: 'Acopio de papel', value: 'ACOPIO', image: require('@/assets/centro_computo.jpg') },
         { text: 'Orgánicos', value: 'ORGANICO', image: require('@/assets/bote_organicos.png') },
@@ -86,7 +76,7 @@ export default {
       userAnswer: null,
       showResult: false,
       resultGif: '',
-      isGameFinished: false
+      isGameFinished: false,
     };
   },
   computed: {
@@ -95,11 +85,11 @@ export default {
     }
   },
   methods: {
-    getMaterials(){
+    async getMaterials(){
       MaterialesService.getMateriales()
         .then(response => {
-          //this.trashSrc = response.data;
-          console.log(response.data);
+          this.trashSrc = response.data;
+          this.setup();
         })
         .catch(error => {
           console.log(error);
@@ -122,8 +112,6 @@ export default {
         this.isResultSucess = false;
       }
       this.showResult = true;
-      this.currentTrashElementIndex++;
-      this.setup();
     },
     getColor(index) {
       if (index == this.selectedCard) {
@@ -140,6 +128,8 @@ export default {
       }
     },
     setupNextElement() {
+      this.currentTrashElementIndex++;
+      this.setup();
       this.showResult = false;
       this.selectedCard = null;
       this.resultGif = '';
@@ -247,5 +237,10 @@ export default {
 .termino{
   background: linear-gradient(to bottom, #FFFFDD, #CFFF8D);
 }
-
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
 </style>
