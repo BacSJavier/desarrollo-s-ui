@@ -36,6 +36,16 @@
             name: 'Sergio Arturo',
             role: 'Promotor',
             image: require('@/assets/promotor.png')
+          },
+          {
+            name: 'Julián Pacheco',
+            role: 'Documentador',
+            image: require('@/assets/pacheco.jpg')
+          },
+          {
+            name: 'Andrés Zamora',
+            role: 'Administrador de base de datos',
+            image: require('@/assets/Andres.jpg')
           }
         ]
       };
